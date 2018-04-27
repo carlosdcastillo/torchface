@@ -182,8 +182,7 @@ def process(item):
 
 def main():
 
-    (data, titles) = load_csv(
-        '/fs/janus-scratch/carlos/lfw-feats-spring17/lfwall_ultraface.csv')
+    (data, titles) = load_csv('lfwall_ultraface.csv')
 
     print("=> using pre-trained model '{}'".format('resnet18'))
     model = models.__dict__['resnet18'](pretrained=True)
