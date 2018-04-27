@@ -19,19 +19,6 @@ import torchvision.datasets as datasets
 import torchvision.models as models
 
 
-# from PIL import Image
-
-
-# class Resize(object):
-#     def __init__(self, size, interpolation=Image.BILINEAR):
-#         self.size = size
-#         self.interpolation = interpolation
-
-#     def __call__(self, img):
-
-#         return img.resize(self.size, resample=self.interpolation)
-
-
 model_names = sorted(name for name in models.__dict__
                      if name.islower() and not name.startswith("__")
                      and callable(models.__dict__[name]))
@@ -84,7 +71,7 @@ class RajeevNet(nn.Module):
     def forward(self, input):
         x = nn.AdaptiveAvgPool2d(1)(input)
         x = torch.squeeze(x)
-        x = F.normalize(x)
+        x = 20 * F.normalize(x)
         x = x.contiguous()
         return x
 

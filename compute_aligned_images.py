@@ -15,7 +15,7 @@ from PIL import Image, ImageDraw, ImageFont
 import random
 
 
-def load_janus_csv(filename):
+def load_csv(filename):
     data = []
     titles = []
     with open(filename, 'rb') as f:
@@ -167,9 +167,8 @@ def process(item):
 
 def main():
     print 'loading'
-    (data, titles) = load_janus_csv(
+    (data, titles) = load_csv(
         '/fs/janus-scratch/ankan/umdfaces_images/umdfaces_batch3/umdfaces_batch3_ultraface.csv')
-    # (data, titles) = load_janus_csv('/fs/janus-scratch/rranjan1/vgg_curated.csv');
     listofitems = []
     for item in data:
         listofitems.append(item)
