@@ -70,7 +70,8 @@ class RajeevNet(nn.Module):
 
     def forward(self, input):
         x = nn.AdaptiveAvgPool2d(1)(input)
-        x = torch.squeeze(x)
+        x = torch.squeeze(x, 3)
+        x = torch.squeeze(x, 2)
         x = 20 * F.normalize(x)
         x = x.contiguous()
         return x
